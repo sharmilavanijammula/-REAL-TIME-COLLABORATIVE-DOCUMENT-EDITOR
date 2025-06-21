@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Extension Icons</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        canvas {
+            border: 1px solid #ccc;
+            margin: 10px;
+        }
+        
+        .instructions {
+            max-width: 500px;
+            margin: 0 auto 20px auto;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Extension Icon Generator</h1>
+    
+    <div class="instructions">
+        <p>This page creates placeholder icons for your Chrome extension. Use this to:</p>
+        <ol>
+            <li>Right-click on each canvas and select "Save image as..."</li>
+            <li>Save each icon with the correct filename (icon16.png, icon48.png, icon128.png)</li>
+        </ol>
+    </div>
+    
+    <div>
+        <h3>16x16 Icon</h3>
+        <canvas id="icon16" width="16" height="16"></canvas>
+        <p>Save as: <b>icon16.png</b></p>
+    </div>
+    
+    <div>
+        <h3>48x48 Icon</h3>
+        <canvas id="icon48" width="48" height="48"></canvas>
+        <p>Save as: <b>icon48.png</b></p>
+    </div>
+    
+    <div>
+        <h3>128x128 Icon</h3>
+        <canvas id="icon128" width="128" height="128"></canvas>
+        <p>Save as: <b>icon128.png</b></p>
+    </div>
+    
+    <script>
+        // Function to draw the icons
+        function drawIcons() {
+            // Colors
+            const primaryColor = '#4285F4'; // Google blue
+            const secondaryColor = '#34A853'; // Google green
+            
+            // Draw 16x16 icon
+            const ctx16 = document.getElementById('icon16').getContext('2d');
+            ctx16.fillStyle = primaryColor;
+            ctx16.fillRect(0, 0, 16, 16);
+            ctx16.fillStyle = secondaryColor;
+            ctx16.fillRect(8, 0, 8, 8);
+            ctx16.fillRect(0, 8, 8, 8);
+            
+            // Draw 48x48 icon
+            const ctx48 = document.getElementById('icon48').getContext('2d');
+            ctx48.fillStyle = primaryColor;
+            ctx48.fillRect(0, 0, 48, 48);
+            ctx48.fillStyle = secondaryColor;
+            ctx48.fillRect(24, 0, 24, 24);
+            ctx48.fillRect(0, 24, 24, 24);
+            
+            // Draw 128x128 icon
+            const ctx128 = document.getElementById('icon128').getContext('2d');
+            ctx128.fillStyle = primaryColor;
+            ctx128.fillRect(0, 0, 128, 128);
+            ctx128.fillStyle = secondaryColor;
+            ctx128.fillRect(64, 0, 64, 64);
+            ctx128.fillRect(0, 64, 64, 64);
+            
+            // Add clock elements to 128x128 icon
+            ctx128.strokeStyle = 'white';
+            ctx128.lineWidth = 4;
+            ctx128.beginPath();
+            ctx128.arc(64, 64, 40, 0, 2 * Math.PI);
+            ctx128.stroke();
+            
+            // Draw clock hands
+            ctx128.beginPath();
+            ctx128.moveTo(64, 64);
+            ctx128.lineTo(64, 40);
+            ctx128.stroke();
+            
+            ctx128.beginPath();
+            ctx128.moveTo(64, 64);
+            ctx128.lineTo(80, 64);
+            ctx128.stroke();
+        }
+        
+        // Call the function when the page loads
+        window.onload = drawIcons;
+    </script>
+</body>
+</html> 
