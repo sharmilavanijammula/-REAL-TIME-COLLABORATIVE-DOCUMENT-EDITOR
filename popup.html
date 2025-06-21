@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Productivity Tracker</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Productivity Tracker</h1>
+    
+    <div class="tabs">
+      <button class="tab-button active" data-tab="today">Today</button>
+      <button class="tab-button" data-tab="stats">Stats</button>
+      <button class="tab-button" data-tab="settings">Settings</button>
+    </div>
+    
+    <div id="today" class="tab-content active">
+      <h2>Today's Activity</h2>
+      <div class="total-time">
+        <span id="total-time-value">0m</span>
+        <span class="label">Total</span>
+      </div>
+      
+      <h3>Most Visited</h3>
+      <div id="top-sites" class="site-list"></div>
+      
+      <div class="chart-container">
+        <h3>Time Distribution</h3>
+        <canvas id="categoryChart"></canvas>
+      </div>
+    </div>
+    
+    <div id="stats" class="tab-content">
+      <h2>Weekly Overview</h2>
+      <div class="chart-container">
+        <canvas id="weeklyChart"></canvas>
+      </div>
+      
+      <h3>Productivity Score</h3>
+      <div class="progress-container">
+        <div id="productivity-bar" class="progress-bar"></div>
+        <span id="productivity-score">0%</span>
+      </div>
+    </div>
+    
+    <div id="settings" class="tab-content">
+      <h2>Settings</h2>
+      
+      <div class="setting-section">
+        <h3>Site Categories</h3>
+        <div class="category-list" id="category-settings">
+          <!-- Categories will be inserted by JavaScript -->
+        </div>
+        
+        <button id="add-category">Add New Category</button>
+      </div>
+      
+      <div class="setting-section">
+        <h3>Data Management</h3>
+        <button id="export-data">Export Data</button>
+        <button id="clear-data" class="danger">Reset Data</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="chart.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html> 
